@@ -24,11 +24,15 @@ int main(int argc, const char * * argv) {
        	array[z] = z;
 	}
 
+	// declaring Array
+	
 	int len = sizeof (array) /sizeof (int);
  	 for (i=0;i< len;i++) {
  	printf("%d\n", array[i] );
  	 }
   	
+	// use pointer to find the address where the elements of the array are stored
+	
      for(int i =0; i<array_size;i++){
     pointer = &array[i];
     printf(" Address is %p ", pointer);
@@ -38,14 +42,14 @@ int main(int argc, const char * * argv) {
 
 printf("Now the data will be flushed\n");
 
-
+  // Using the clflush instructions, the respective address of array elements are flushed from the cache memory
 
 	for (int j = 0; j <flush_size; j++) 
 	{
     	_mm_clflush(&array[j]);
 	    }
 
-
+// the array elements are reloaded
  
 	for(int i =0; i<array_size;i++){
     	printf(" Address is %p ", &array[i]);
